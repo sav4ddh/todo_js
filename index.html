@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Todo app p/w by pepco.</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <link
+      href="https://cdn.boxicons.com/fonts/basic/boxicons.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <section class="addTaskContainer" id="todoTaskForm">
+      <p><i class="bx bx-pencil-draw"></i> Add Task Details</p>
+      <form name="todoForm" action="" method="get">
+        <div>
+          <label for="taskName">Enter task*</label>
+          <input
+            type="text"
+            name="taskName"
+            placeholder="eg: Onboarding flow design"
+          />
+        </div>
+
+        <div>
+          <label for="taskDesc">Enter Description</label>
+          <textarea
+            name="taskDesc"
+            placeholder="eg: Design the onboarding flow for the application to guide new users through the initial setup and key features"
+          ></textarea>
+        </div>
+
+        <div>
+          <label for="taskDueDate">Enter Due Date*</label>
+          <input
+            type="date"
+            name="taskDueDate"
+            id="taskDueDate"
+            placeholder="eg: Onboarding flow design"
+          />
+        </div>
+
+        <div>
+          <label for="taskPrioritization">Choose priority*</label>
+          <select id="taskPrioritization" name="taskPrioritization">
+            <option value="Urgent">Urgent</option>
+            <option value="Important">Important</option>
+            <option value="Not Urgent">Not Urgent</option>
+            <option value="" disabled selected></option>
+          </select>
+        </div>
+
+        <div class="errorBox" id="errorBox"></div>
+
+        <div>
+          <input
+            class="submitButton"
+            type="button"
+            value="Add task to the list"
+            onclick="getTodoFormDetails(this.form)"
+          />
+        </div>
+      </form>
+    </section>
+
+    <header>
+      <div class="brandSection"><h2>Pepco.</h2></div>
+      <div class="searchSection">
+        <i class="bx bx-search"></i>
+        <input type="text" placeholder="Search" name="searchTodos" />
+      </div>
+      <div class="profileSection">
+        <button onclick="toggleTodoForm()">
+          <i class="bx bx-pencil-draw"></i> <span>New Task</span>
+        </button>
+      </div>
+    </header>
+
+    <main id="todoShowBox">
+      <div class="todoContainer todayContainer">
+        <p class="todoTitle">Today</p>
+
+        <div class="todoList">
+          <div class="todoIcon">
+            <i class="bx bx-calendar-star isToday"></i>
+          </div>
+          <div class="todo">
+            <p>Budget and timeline discussion.</p>
+            <span>03 June 2025</span>
+          </div>
+          <div class="opButtons">
+            <i class="bx bx-checks"></i>
+            <i class="bx bx-trash"></i>
+          </div>
+        </div>
+
+        <div class="todoList">
+          <div class="todoIcon">
+            <i class="bx bx-calendar-star isToday"></i>
+          </div>
+          <div class="todo">
+            <p>Onboarding flow design.</p>
+            <span>03 June 2025</span>
+          </div>
+          <div class="opButtons">
+            <i class="bx bx-checks"></i>
+            <i class="bx bx-trash"></i>
+          </div>
+        </div>
+
+        <div class="todoList">
+          <div class="todoIcon">
+            <i class="bx bx-calendar-star isToday"></i>
+          </div>
+          <div class="todo">
+            <p>Animation interaction design.</p>
+            <span>03 June 2025</span>
+          </div>
+          <div class="opButtons">
+            <i class="bx bx-checks"></i>
+            <i class="bx bx-trash"></i>
+          </div>
+        </div>
+      </div>
+
+      <div class="todoContainer upcomingContainer">
+        <p class="todoTitle">Coming Up</p>
+
+        <div class="todoList">
+          <div class="todoIcon">
+            <i class="bx bx-calendar-event"></i>
+          </div>
+          <div class="todo">
+            <p>Travel app development.</p>
+            <span>08 June 2025</span>
+          </div>
+          <div class="opButtons">
+            <i class="bx bx-checks"></i>
+            <i class="bx bx-trash"></i>
+          </div>
+        </div>
+
+        <div class="todoList">
+          <div class="todoIcon">
+            <i class="bx bx-calendar-event"></i>
+          </div>
+          <div class="todo">
+            <p>Client introduction and project scopes.</p>
+            <span>10 June 2025</span>
+          </div>
+          <div class="opButtons">
+            <i class="bx bx-checks"></i>
+            <i class="bx bx-trash"></i>
+          </div>
+        </div>
+
+        <div class="todoList">
+          <div class="todoIcon">
+            <i class="bx bx-calendar-event"></i>
+          </div>
+          <div class="todo">
+            <p>Brand identity discussion.</p>
+            <span>12 June 2025</span>
+          </div>
+          <div class="opButtons">
+            <i class="bx bx-checks"></i>
+            <i class="bx bx-trash"></i>
+          </div>
+        </div>
+      </div>
+    </main>
+    <script src="./app.js"></script>
+  </body>
+</html>
