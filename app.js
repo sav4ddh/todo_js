@@ -47,27 +47,28 @@ function getTodoFormDetails(form) {
   addTodo(taskName, taskDescription, taskDueDate, taskPrioritization);
 }
 
-function addTodo(taskName, taskDescription, taskDueDate, taskPrioritization) {
-  todos.push({ taskName, taskDescription, taskDueDate, taskPrioritization });
-  console.log(todos);
-  reloadTodoList();
-
-  isOpen = false;
-  toggleTodoForm();
+function convertISOToLongDate(ISODateString) {
+  const date = new Date(ISODateString);
+  return date.toLocaleDateString(undefined, {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  });
 }
 
-function reloadTodoList() {
+function reloadTodoList(todoDatas) {
   upComingTodoShowList.innerHTML = `
-  ${todos
-    .map((todo, id) => {
+  ${todoDatas
+    .map((todoDatas, id) => {
+      console.log("Console from reloadTodoList: ", todoDatas);
       return `
         <div class="todoList">
             <div class="todoIcon">
               <i class="bx bx-calendar-event"></i>
             </div>
             <div class="todo">
-              <p>${todo.taskName}</p>
-              <span>${todo.taskDueDate}</span>
+              <p>${todoDatas.taskName}</p>
+              <span>${todoDatas.convertedTaskDueDate}</span>
             </div>
             <div class="opButtons">
               <i class="bx bx-checks"></i>
@@ -80,10 +81,25 @@ function reloadTodoList() {
   `;
 }
 
+function addTodo(taskName, taskDescription, taskDueDate, taskPrioritization) {
+  let convertedTaskDueDate = convertISOToLongDate(taskDueDate);
+  todos.push({
+    taskName,
+    taskDescription,
+    convertedTaskDueDate,
+    taskPrioritization,
+  });
+  console.log(todos);
+  reloadTodoList(todos);
+
+  isOpen = false;
+  toggleTodoForm();
+}
+
 // !  #TODO:
 // !  [+] #0: Remove append child fn and use innerHTML like react.
-// !  [-] #1: Redirect to todos page when user clicked "addTodo" button
-// !  [-] #2: Change the format of dueDate given by the user ie: "2025-06-25" to "25 June 2025"
+// !  [+] #1: Redirect to todos page when user clicked "addTodo" button
+// !  [+] #2: Change the format of dueDate given by the user ie: "2025-06-25" to "25 June 2025"
 // !  [-] #3: Filter the dates into today and upcoming
 // !  [-] #4: Option to Mark As Done and Delete todo.
 // !  [-] #5: Option to search todos.
