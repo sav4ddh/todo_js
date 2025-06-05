@@ -65,7 +65,6 @@
   outline: none;
   border: 1px solid #a09b9b;
   resize: vertical;
-  cursor: pointer;
 }
 .addTaskContainer form div .submitButton {
   background: #8708f7;
