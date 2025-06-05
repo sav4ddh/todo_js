@@ -4,7 +4,7 @@ let errorBox = document.getElementById("errorBox");
 let todoTaskForm = document.getElementById("todoTaskForm");
 let todoShowBox = document.getElementById("todoShowBox");
 let dateInput = document.getElementById("taskDueDate");
-let upcomingTitle = document.getElementById("upcomingTitle");
+let upcomingContainer = document.getElementById("upcomingContainer");
 
 let upComingTodoShowList = document.getElementById("upComingTodoShowList");
 let todaysTodoShowList = document.getElementById("todaysTodoShowList");
@@ -55,7 +55,7 @@ function getTodoFormDetails(form) {
 
   form.taskName.value = "";
   form.taskDesc.value = "";
-  taskDueDate.value = today;
+  form.taskDueDate.value = today;
   form.taskPrioritization.value = "";
 }
 
@@ -72,9 +72,18 @@ function reloadTodoList(todoDatas) {
   const todaysDate = convertISOToLongDate(today);
 
   if (todoDatas.length === 0) {
-    upcomingTitle.style.display = "none";
+    upcomingContainer.style.display = "none";
   } else {
-    upcomingTitle.style.display = "block";
+    upcomingTodos = todos.filter((todo) => {
+      return todo.convertedTaskDueDate !== todaysDate;
+    });
+
+    if (upcomingTodos.length === 0) {
+      upcomingContainer.style.display = "none";
+    } else {
+      upcomingContainer.style.display = "inline-block";
+    }
+
     upComingTodoShowList.innerHTML = `
     ${todoDatas
       .map((todoDatas, todo__id) => {
