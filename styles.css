@@ -150,6 +150,18 @@ main {
   justify-content: center;
   flex-direction: column;
 }
+main .emptyTodoList {
+  padding: 10px;
+  text-align: center;
+}
+main .emptyTodoList h4 {
+  font-weight: 600;
+  font-size: 25px;
+}
+main .emptyTodoList span {
+  color: #303540;
+  font-size: 14px;
+}
 main .todoContainer {
   display: block;
   background: #f5f7fb;
