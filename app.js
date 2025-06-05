@@ -4,6 +4,7 @@ let errorBox = document.getElementById("errorBox");
 let todoTaskForm = document.getElementById("todoTaskForm");
 let todoShowBox = document.getElementById("todoShowBox");
 let dateInput = document.getElementById("taskDueDate");
+let upcomingTitle = document.getElementById("upcomingTitle");
 
 let upComingTodoShowList = document.getElementById("upComingTodoShowList");
 let todaysTodoShowList = document.getElementById("todaysTodoShowList");
@@ -71,8 +72,9 @@ function reloadTodoList(todoDatas) {
   const todaysDate = convertISOToLongDate(today);
 
   if (todoDatas.length === 0) {
-    // Nothing here.
+    upcomingTitle.style.display = "none";
   } else {
+    upcomingTitle.style.display = "block";
     upComingTodoShowList.innerHTML = `
     ${todoDatas
       .map((todoDatas, todo__id) => {
