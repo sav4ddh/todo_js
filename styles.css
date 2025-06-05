@@ -6,6 +6,10 @@
   font-family: "Poppins", sans-serif;
 }
 
+.hide {
+  display: none !important;
+}
+
 .addTaskContainer {
   display: none;
   background: #ffffff;
@@ -221,11 +225,18 @@ main .todoContainer .todoList .opButtons i {
   color: #6d6e6f;
   cursor: pointer;
 }
-main .todoContainer .todoList .opButtons i.bx-checks {
-  margin-right: 5px;
-  font-size: 25px;
+main .todoContainer .todoList .opButtons i.bxs-check-circle {
+  color: #257842;
+  font-size: 16px;
+  margin-right: 8px;
 }
-main .todoContainer .todoList .opButtons i.bx-checks:hover {
+main .todoContainer .todoList .opButtons i.bx-checks,
+main .todoContainer .todoList .opButtons i.bx-check-circle {
+  margin-right: 8px;
+  font-size: 16px;
+}
+main .todoContainer .todoList .opButtons i.bx-checks:hover,
+main .todoContainer .todoList .opButtons i.bx-check-circle:hover {
   color: #2d9b53;
 }
 main .todoContainer .todoList .opButtons i.bx-trash {

@@ -65,10 +65,15 @@
     </section>
 
     <header>
-      <div class="brandSection"><h2>Pepco.</h2></div>
+      <div class="brandSection"><h2 onclick="closeForm()">Pepco.</h2></div>
       <div class="searchSection">
         <i class="bx bx-search"></i>
-        <input type="text" placeholder="Search" name="searchTodos" />
+        <input
+          type="text"
+          placeholder="Search"
+          data-search
+          name="searchTodos"
+        />
       </div>
       <div class="profileSection">
         <button onclick="toggleTodoForm()">

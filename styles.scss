@@ -11,6 +11,10 @@ $tert-color: #8708f7;
   font-family: "Poppins", sans-serif;
 }
 
+.hide {
+  display: none !important;
+}
+
 .addTaskContainer {
   display: none;
   background: $primary-color;
@@ -257,9 +261,16 @@ main {
           cursor: pointer;
         }
 
-        i.bx-checks {
-          margin-right: 5px;
-          font-size: 25px;
+        i.bxs-check-circle {
+          color: #257842;
+          font-size: 16px;
+          margin-right: 8px;
+        }
+
+        i.bx-checks,
+        i.bx-check-circle {
+          margin-right: 8px;
+          font-size: 16px;
 
           &:hover {
             color: #2d9b53;
